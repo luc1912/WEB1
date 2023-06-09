@@ -2,6 +2,10 @@ import data from './data.js';
 
 let brojac_proizvoda = new Map();
 let ukbr = 0;
+let kategorija_refresh;
+
+
+
 
 function provjera(broj_kategorije){
     for(let pom = 0; pom < 5; pom++){
@@ -74,7 +78,7 @@ kat10.onclick = () => {
 
 function kategorije(ime_kategorije, broj_kategorije){
 
-
+    kategorija_refresh = broj_kategorije;
     trenutna_kategorija.innerText = ime_kategorije;
 
 
@@ -101,21 +105,26 @@ function kategorije(ime_kategorije, broj_kategorije){
 
         let dodajkosarica = document.getElementById("k"+(i+1));
         dodajkosarica.onclick = () => {
+            let ima_li_nesto_na_local_storageu_2 = JSON.parse(localStorage.getItem("ukupnibroj"));
+            let elementi_na_local_2 = JSON.parse(localStorage.getItem("kosarica"));
+            if(ima_li_nesto_na_local_storageu_2){
+                ukbr = ima_li_nesto_na_local_storageu_2
+            }
             ukbr++;
             let ukbroj = document.getElementById("brojukosarici");
             ukbroj.textContent = ukbr;
-            console.log("kliknuto");
             let imeproizvoda = data.categories[broj_kategorije].products[i].name;
             let brpr = (document.getElementById("brojpr" + (i+1)));
 
+            if(elementi_na_local_2){
+                 brojac_proizvoda = new Map(Object.entries(elementi_na_local_2));
+                }
             if(brojac_proizvoda.has(imeproizvoda)){
-                console.log("dodano opet");
                 let pm = brojac_proizvoda.get(imeproizvoda);
-                brojac_proizvoda.set(imeproizvoda, pm+1);
+                brojac_proizvoda.set(imeproizvoda, ++pm);
                 data.categories[broj_kategorije].products[i].brojac += 1;
-                brpr.textContent = (data.categories[broj_kategorije].products[i].brojac).toString();
+                brpr.textContent = pm.toString();
             }else{
-                console.log("Dodano prvi put");
                 brojac_proizvoda.set(imeproizvoda, 1);
                 data.categories[broj_kategorije].products[i].brojac = 1;
                 brpr.textContent =  (data.categories[broj_kategorije].products[i].brojac = 1).toString();
@@ -124,11 +133,24 @@ function kategorije(ime_kategorije, broj_kategorije){
             localStorage.setItem("kosarica", JSON.stringify(Object.fromEntries(brojac_proizvoda)));
             localStorage.ukupnibroj = ukbr;
 
-
         }
-
     }
 }
 
+let ima_li_nesto_na_local_storageu = JSON.parse(localStorage.getItem("ukupnibroj"));
+if(ima_li_nesto_na_local_storageu){
+    let ukupno = document.getElementById("brojukosarici");
+    ukupno.textContent = ima_li_nesto_na_local_storageu;
+}
 
-
+let elementi_na_local = JSON.parse(localStorage.getItem("kosarica"))
+if(elementi_na_local){
+    let local_elementi_mapa = new Map(Object.entries(elementi_na_local));
+    for(let i = 0; i < 5; i++){
+        let imeproizvoda = data.categories[kategorija_refresh].products[i].name;
+        let brpr = (document.getElementById("brojpr" + (i+1)));
+        if(local_elementi_mapa.has(imeproizvoda)){
+            brpr.textContent = local_elementi_mapa.get(imeproizvoda).toString();
+        }
+    }
+}
