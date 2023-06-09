@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyHome</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="grid-item" id="logo">
+        <img src="/images/logo.png" alt="logo" id="mojlogo">
+    </div>
+
+    <div class="grid-item" id="hello">
+        <span id="naslov">Create a space you love</span>
+        <img src="/images/pouzic.png" alt="hellllo" id="pozdrav">
+    </div>
+
+    <div class="grid-item" id="pictures">
+        <div class="flexcontainer">
+
+        </div>
+    </div>
+
+    <div class="grid-item" id="navigation">
+            <% let index = 0;
+            categories.forEach(function(category) { %>
+                <button class="mojgumb" id="kat<%= ++index %>"><%= category.name %></button>
+                <br>
+                <br>
+            <% }) %>
+    </div>
+
+
+
+
+    <div class="grid-item" id="kosarica">
+        <div class="kosaricacontainer">
+            <a href="/cart/">
+                <button id="cartbttn">
+                    <img src="/images/cart.png" alt="kosarica" id="cart">
+                    <span id="brojukosarici"></span>
+                </button>
+            </a>
+            <img src="/images/searchh.png" alt="povecalo" id="search">
+        </div>
+    </div>
+
+    <div class="grid-item" id="kategorija">
+
+    </div>
+
+    <div class="grid-item" id="kontakt">
+        <ul class="mojalista">
+            <li><i><b>kontakt</b></i></li>
+            <li><i><b>newsletter</b></i></li>
+            <li><i><b>pretplati se</b></i></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+<script type="module" src="/scripts/glavni.js"></script>
+<script type="module" src="/scripts/cart.js"></script>
+</html>

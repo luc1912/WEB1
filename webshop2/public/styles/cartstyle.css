@@ -1,0 +1,170 @@
+*{
+    background-color: antiquewhite;
+
+}
+
+div.container{
+    display: grid;
+    overflow: auto;
+    height: 90vh;
+}
+
+.grid-item{
+    margin: 3px;
+}
+
+#logoback{
+    grid-area: logoback;
+}
+
+#hello{
+    grid-area: slika;
+}
+
+#main{
+    grid-area: main;
+}
+
+#backbttn{
+    border: none !important;
+    width: 7vh;
+}
+
+#backbttn:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+
+#logo{
+    width: 5vh;
+    float: left;
+    padding-top: 20px;
+}
+
+#natrag{
+    width: 5vh;
+    float: left;
+    padding-top: 20px;
+}
+
+#hello{
+    position: relative;
+}
+
+
+#pozdrav{
+    height: 30vh;
+    width: 100%;
+    display: block;
+}
+
+#main{
+    display: flex;
+    justify-content: center;
+}
+
+
+.kosaricagl{
+    border: 1px solid saddlebrown;
+    background-color: rgba(244, 164, 97, 0.2);
+    height: 90%;
+    width: 80%;
+    margin: 40px;
+    text-align: center;
+    color: saddlebrown;
+    font-family: Calibri, sans-serif;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.gumb{
+    background-color: rgb(96, 48, 0, 0.6) !important;
+    color: navajowhite;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+}
+
+.gumb:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.strana{
+    height: 100%;
+    width: 50%;
+    background-color: rgba(244, 164, 97, 0.01);
+    color: saddlebrown;
+    font-weight: bold;
+
+}
+
+#lijeva{
+    text-align: right;
+}
+
+#desna{
+    text-align: left;
+}
+
+.listaproizvoda{
+    background-color: transparent !important;
+    list-style-type: none;
+
+}
+
+
+.proizvod{
+    background-color: transparent !important;
+}
+
+
+
+#tektkosarica{
+    background-color: transparent !important;
+}
+
+#naslov{
+    color: saddlebrown;
+    font-family: Calibri, sans-serif;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 5vh;
+    background-color: transparent !important;
+}
+
+
+@media all and (min-width: 1024px) {
+    .container{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 0.6fr 1fr;
+        grid-template-areas:
+        'logoback . .'
+        'slika slika slika'
+        'main main main '
+    }
+
+}
+
+
+@media all and (max-width: 1024px) {
+    .container{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 0.6fr 1fr;
+        grid-template-areas:
+        'logoback . .'
+        'slika slika slika'
+        'main main main '
+    }
+
+}
+
+
+
+
+
