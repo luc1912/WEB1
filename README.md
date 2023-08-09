@@ -1,2 +1,2 @@
 # WEBSHOP
-jednostavna web stranica za webshop 
+simple webshop website
