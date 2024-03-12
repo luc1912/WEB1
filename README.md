@@ -1,8 +1,8 @@
 # WEBSHOP
 simple webshop website
 
-webshop1 -> 
+# webshop1
 client side 
 
-webshop2 ->
+# webshop2
 client and server side
